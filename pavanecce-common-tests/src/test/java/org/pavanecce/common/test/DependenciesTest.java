@@ -14,19 +14,22 @@ import javax.jcr.SimpleCredentials;
 import org.apache.jackrabbit.core.TransientRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.ops4j.pax.exam.Configuration;
 import org.ops4j.pax.exam.Option;
-import org.ops4j.pax.exam.junit.PaxExam;
+import org.ops4j.pax.exam.junit.Configuration;
+import org.ops4j.pax.exam.junit.JUnit4TestRunner;
+import org.ops4j.pax.exam.spi.PaxExamRuntime;
+import org.osgi.framework.BundleEvent;
 import org.pavanecce.common.ocm.ObjectContentManagerFactory;
 import org.pavanecce.common.util.FileUtil;
 
-@RunWith(PaxExam.class)
+@RunWith(JUnit4TestRunner.class)
 public class DependenciesTest {
 	@Test
 	public void testIt() throws Exception {
 		File jcrRepoDir = new File("./repository");
 		FileUtil.deleteAllChildren(jcrRepoDir);
 		jcrRepoDir.mkdirs();
+		BundleEvent be;
 
 		TransientRepository tr = new TransientRepository();
 		Session transientSession = tr.login(new SimpleCredentials("admin", "admin".toCharArray()));
