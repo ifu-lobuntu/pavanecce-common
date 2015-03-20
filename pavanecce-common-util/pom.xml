@@ -11,10 +11,9 @@
 	<packaging>bundle</packaging>
 	<dependencies>
 		<dependency>
-			<groupId>org.pavanecce</groupId>
-			<artifactId>${environment.artifactId}</artifactId>
-			<version>${project.parent.version}</version>
-			<type>jar</type>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.2</version>
 		</dependency>
 	</dependencies>
 	<build>
